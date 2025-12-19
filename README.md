@@ -1,5 +1,5 @@
 # eng2kor  
-A lightweight, rule-based English-to-Hangul phoneme converter using **phonemizer (IPA)** and **espeak-ng** as the backend.
+A lightweight, rule-based English-to-Hangul phoneme converter using **phonemizer (IPA)** from **espeak-ng** as the backend.
 
 ## Overview  
 **eng2kor** converts English words and full sentences into approximate Korean Hangul pronunciations.  
@@ -7,61 +7,29 @@ This project does **not** rely on dictionary lookup; instead, it uses a **rule-b
 
 - Words not found in English dictionaries  
 - Informal spellings  
-- Proper nouns and coined terms  
-- Domain-specific or uncommon vocabulary  
+- maintaining punctuations
 
 The phoneme conversion internally utilizes **espeak-ng** through the `phonemizer` library.
 
 ---
 
 ## Requirements
-
-### Python Dependencies
-Defined in `requirements.txt`:
-
 ```
+python >=3.11
 phonemizer>=3.0.0
 ```
 
-### System Dependency  
-Because the IPA conversion pipeline uses espeak-ng:
 
-- **Ubuntu / Debian**
-  ```
-  sudo apt-get install espeak-ng
-  ```
+## Quick Start
 
-- **macOS (Homebrew)**
-  ```
-  brew install espeak-ng
-  ```
-
-- **Windows**
-  Download and install from:  
-  https://github.com/espeak-ng/espeak-ng/releases
-
----
-
-## Installation
-
-Clone the repository:
 
 ```
-git clone https://github.com/kijoongkwon99/eng2kor
+conda create -n "eng2kor" python=3.11
 cd eng2kor
-```
-
-Install the package:
+pip install git+https://github.com/kijoongkwon99/eng2kor.git
 
 ```
-pip install -e .
-```
 
-(Optional) Install dependencies manually:
-
-```
-pip install -r requirements.txt
-```
 
 ---
 
@@ -72,31 +40,22 @@ pip install -r requirements.txt
 ```python
 from eng2kor import eng_to_hangul
 
-print(eng_to_hangul("hello world"))
-print(eng_to_hangul("transformer"))
-print(eng_to_hangul("Starbucks"))
+print(eng_to_hangul("This tool is not perfect, but it was designed to minimize unexpected edge cases and ensure stable behavior."))
+print(eng_to_hangul("It was created to serve as a plug-and-play module for TTS systems or as a lightweight normalizer component during model training."))
+print(eng_to_hangul("Since the tool prioritizes reflecting the original English phonetics, the output may differ from intuitive Korean pronunciations.
+))
 ```
 
 ### Expected Output (approximate)
 
 ```
-헬로 월드
-트랜스포머
-스타벅스
+디스 튤 이즈 나트 퍼펰트, 버트 이트 우어즈 디자인드 터 미니마이즈 어넼펰티드 에지 케이시즈 앤드 엔시울 스테이벌 비헤이비얼.
+이트 우어즈 크리에이리드 터 서브 애즈 어 프러그 앤드 프레이 마지율 폴 티티에스 시스텀즈 올 애즈 어 라이투에이트 노르머라잊얼 컴포넌트 두르링 마덜 트레이닝.
+신스 더 튤 프라이오리타이지즈 리프렠팅 디 얼리지이널 잉그리시 퍼네맄스, 디 아웉푸트 메이 딮얼 프럼 인튜이티브 코리안 프러넌시에이시언즈.
 ```
 
 The system follows:  
 **English → IPA → Jamo → Assembled Hangul**,  
 providing stable and consistent phonetic results.
-
----
-
-## Features
-
-- Rule-based English-to-Hangul pronunciation conversion  
-- Works even for non-dictionary English words  
-- Full sentence support  
-- Uses espeak-ng backend through phonemizer  
-- Lightweight and suitable for NLP preprocessing pipelines  
 
 ---
