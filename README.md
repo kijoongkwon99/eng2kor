@@ -42,8 +42,7 @@ from eng2kor import eng_to_hangul
 
 print(eng_to_hangul("This tool is not perfect, but it was designed to minimize unexpected edge cases and ensure stable behavior."))
 print(eng_to_hangul("It was created to serve as a plug-and-play module for TTS systems or as a lightweight normalizer component during model training."))
-print(eng_to_hangul("Since the tool prioritizes reflecting the original English phonetics, the output may differ from intuitive Korean pronunciations.
-))
+print(eng_to_hangul("Since the tool prioritizes reflecting the original English phonetics, the output may differ from intuitive Korean pronunciations."))
 ```
 
 ### Expected Output (approximate)
