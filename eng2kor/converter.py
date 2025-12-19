@@ -8,10 +8,6 @@ def eng_to_ipa_with_punct(text: str) -> str:
 
 
 def ipa_to_hangul(ipa: str) -> str:
-    """
-    IPA → (자모 스트림) → 후처리 → 한글 자모 결과
-    """
-
     tokens = sorted(IPA_TO_HANGUL.keys(), key=len, reverse=True)
 
     result = ""
