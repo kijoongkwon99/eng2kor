@@ -29,13 +29,17 @@ cd eng2kor
 pip install git+https://github.com/kijoongkwon99/eng2kor.git
 
 ```
+```python
+from eng2kor import eng_to_hangul
+print(eng_to_hangul("Hello, world!"))
+# 허로, 우얼드!
 
-
+```
 ---
 
 ## How to Use
 
-### Basic Example
+### Example
 
 ```python
 from eng2kor import eng_to_hangul
@@ -45,7 +49,7 @@ print(eng_to_hangul("It was created to serve as a plug-and-play module for TTS s
 print(eng_to_hangul("Since the tool prioritizes reflecting the original English phonetics, the output may differ from intuitive Korean pronunciations."))
 ```
 
-### Expected Output (approximate)
+### Output example
 
 ```
 디스 튤 이즈 나트 퍼펰트, 버트 이트 우어즈 디자인드 터 미니마이즈 어넼펰티드 에지 케이시즈 앤드 엔시울 스테이벌 비헤이비얼.
